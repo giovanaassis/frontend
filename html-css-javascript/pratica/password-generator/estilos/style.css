@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'golden age';
+    src: url(../assets/fonts/Golden\ Age.ttf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+main {
+    background-color: rgb(36, 36, 36);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.generator-layout {
+    width: 90vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'golden age', sans-serif;
+}
+
+.generator {
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+}
+
+#slider {
+    -webkit-appearance: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    outline: 0;
+    cursor: pointer;
+    padding: 1px;
+}
+
+.generate-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(129, 13, 129);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.generate-btn:hover {
+    background-color: rgba(129, 13, 129, 0.815);
+}
+
+.container-password {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    min-height: 150px;
+}
+
+.password {
+    background-color: rgba(0, 0, 0, 0.705);
+    text-align: center;
+    padding: 12px;
+    margin: 10px;
+    border: 1px solid rgba(71, 71, 71, 0.705);
+    border-radius: 5px;
+    width: 100%;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.password:hover {
+    transform: scale(1.1);
+}
+
+.tooltip {
+    background-color: rgb(129, 13, 129);
+    padding: 3px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 7px;
+    width: 80%;
+    text-align: center;
+    display: none;
+}
+
+.show { display: flex; }
+
+
+@media screen and (min-width: 800px) {
+    
+    .generator-layout { width: 650px; }
+    .container-password { width: 500px; }
+}

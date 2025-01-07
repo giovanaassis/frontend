@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section class="generator-layout">
+                <h1 class="title">Password Generator</h1>
+
+                <div class="generator">
+                    <p>Password size: <span id="slider-element"></span> characters</p>
+                    <input type="range" name="slider" id="slider" min="5" max="15">
+                    <button class="generate-btn" id="generate-btn">GENERATE</button>
+                </div>
+        </section>
+
+        <div class="container-password" id="container-password">
+            <h1>Your password is:</h1>
+            <span class="password" id="password"></span>
+                <p class="tooltip">Click on the password to copy. ☝️</p>
+        </div>
+    </main>
+</body>
+</html>

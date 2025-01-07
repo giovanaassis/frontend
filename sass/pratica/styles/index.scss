@@ -1,0 +1,9 @@
+@import './variaveis';
+@import './header';
+
+.contato {
+    @extend header;
+    @include flexCenter(row, 150px);
+    background: $primary;
+    margin-top: 10px;
+}
