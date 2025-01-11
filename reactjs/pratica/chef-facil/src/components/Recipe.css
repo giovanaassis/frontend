@@ -1,0 +1,55 @@
+h1 {
+    color: #38B000;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.recipe_container {
+    margin-left: 2rem;
+    margin-block: 2rem;
+}
+
+.recipe_container h2,
+.recipe_container h3 {
+    margin-block: 2rem;
+}
+
+.ingredients {
+    width: fit-content;
+    border: 2px solid green;
+    padding: 10px;
+}
+
+.ingredients legend {
+    padding-inline: 5px;
+}
+
+.ingredient {
+    margin-bottom: 10px;
+}
+
+.ingredient label {
+    padding-inline: 10px;
+}
+
+.ingredient input {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid green;
+    transition: .1s;
+}
+
+.ingredient input:checked {
+    background-color: green;
+}
+
+.recipe_container ol {
+    list-style-position: inside;
+}
+
+.recipe_container li {
+    margin-bottom: 1rem;
+}
