@@ -1,0 +1,22 @@
+:root {
+  --blue: #010449;
+  --green: #24CD8A;
+  --grey: #4B4D80;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #B8B8D4;
+}
