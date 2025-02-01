@@ -1,0 +1,26 @@
+# Para inicializar um projeto npm
+    npm init
+    npm init -y
+
+
+# Para instalar um pacote
+    npm install nome_pacote
+
+
+# Para remover um pacote
+    npm remove nome_pacote
+
+
+# Para instalar uma dependência de desenvolvimento
+    npm i dependencia --save-dev
+    npm i dependencia -D
+
+
+
+* YARN *
+
+yarn init -y
+yarn add
+yarn remove
+yarn add dependencia -D
+yarn start
