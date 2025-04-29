@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,6 +8,7 @@
 
   --font-display: "Kaushan Script", cursive;
   --font-funnel: "Funnel Sans", sans-serif;
+  --font-imperial: "Imperial Script", cursive;
 }
 
 @layer base {
