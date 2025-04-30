@@ -1,8 +1,14 @@
+import { useState } from "react";
 import CoffeeMenu from "./components/CoffeeMenu";
 import Navbar from "./components/Navbar";
-import FrapCaramel from "@/assets/frap_caramel.png";
+import { coffees } from "./shared/coffees";
+import { CoffeeType } from "./shared/types";
+
+// name, image, styles, color, description
 
 function App() {
+
+  const [selectedCoffee, setSelectedCoffee] = useState<CoffeeType>(coffees[3]);
 
   return (
     <>
@@ -20,21 +26,19 @@ function App() {
             </div>
 
             <p>
-              Combinação de café, chocolate intenso, leite e gelo triturado.
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis
-              quod aliquam dicta consectetur mollitia nihil quasi.
+              {selectedCoffee.description}
             </p>
           </div>
 
-          <CoffeeMenu />
+          <CoffeeMenu setSelectedCoffee={setSelectedCoffee}/>
 
           {/* COFFEE IMAGE */}
           <div className="relative top-50">
             <span className="font-display absolute right-10 bottom-50 block w-fit -rotate-90 text-7xl capitalize opacity-50">
-              caramel
+              {selectedCoffee.name}
             </span>
             <div className="absolute -right-50 bottom-15 w-[400px]">
-              <img src={FrapCaramel} alt="" />
+              <img src={selectedCoffee.image} alt={`frappuccino-${selectedCoffee.name}`} />
             </div>
           </div>
         </section>
