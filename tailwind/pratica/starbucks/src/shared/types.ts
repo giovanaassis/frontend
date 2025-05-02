@@ -2,8 +2,10 @@ export type CoffeeType = {
   id: number;
   name: string;
   image: string;
-  sm_styles: string;
+  name_styles: string;
+  image_styles: string;
   description: string;
+  color: string;
 };
 
 export enum ContainerStyles {

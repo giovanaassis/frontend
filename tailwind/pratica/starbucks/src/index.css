@@ -4,7 +4,6 @@
 
 @theme {
   --color-primary-green: #006542;
-  --color-caramel: #E6BB83;
 
   --font-display: "Kaushan Script", cursive;
   --font-funnel: "Funnel Sans", sans-serif;
@@ -15,6 +14,7 @@
   body, html {
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
   }
 
   #root {
