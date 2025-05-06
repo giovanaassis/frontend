@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css'
 import Welcome from './components/Welcome'
 import { useContext, useEffect } from 'react'
