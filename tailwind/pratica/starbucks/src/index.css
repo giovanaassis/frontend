@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-primary-green: #006542;
-  --color-caramel: #E6BB83;
 
   --font-display: "Kaushan Script", cursive;
   --font-funnel: "Funnel Sans", sans-serif;
+  --font-imperial: "Imperial Script", cursive;
 }
 
 @layer base {
   body, html {
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
   }
 
   #root {
@@ -28,5 +30,24 @@
 
   h1 {
     font-family: "Kaushan Script", cursive;
+  }
+}
+
+@layer utilities {
+  .afterStyles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    clip-path: circle(0% at 50% 50%);
+    transition: .7s;
+    z-index: -1;
+  }
+
+  .showButton:hover::after {
+    clip-path: circle(100% at 50% 50%);
   }
 }
