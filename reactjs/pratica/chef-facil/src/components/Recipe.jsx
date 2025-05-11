@@ -45,14 +45,14 @@ const Recipe = () => {
             {
                 !currentRecipe ? <h2>Receita ainda não encontrada.</h2> : (
 
-                    <div className="recipe_container">
+                    <div className="recipe_container" >
                         <h2>{currentRecipe.receita}</h2>
 
                         <fieldset className="ingredients">
                             <legend>Ingredientes</legend>
 
                             {ingredients.map(ingredient => (
-                                <div className="ingredient">
+                                <div className="ingredient" key={ingredient}>
                                     <input type="checkbox" id={ingredient} />
                                     <label htmlFor={ingredient}>{ingredient}</label>
                                 </div>

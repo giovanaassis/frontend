@@ -37,7 +37,11 @@ const Recipes = () => {
   return (
     <div className="recipes">
       <h1>Chef Fácil</h1>
-      <select value={recipeType} onChange={(e) => selectType(e.target.value)}>
+      <select
+        value={recipeType}
+        onChange={(e) => selectType(e.target.value)}
+        data-testid="select"
+      >
         <option value="todas">Todas as receitas</option>
         <option value="doce">Doces</option>
         <option value="salgado">Salgadas</option>
