@@ -7,15 +7,19 @@ const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [recipeType, setRecipeType] = useState("todas");
+  const [isLoading, setIsLoading] = useState(true);
 
   const getRecipes = async () => {
     try {
+      setIsLoading(true);
       const response = await apiFetch.get("/todas");
       const data = response.data;
       setRecipes(data);
       setFilteredRecipes(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -48,7 +52,7 @@ const Recipes = () => {
         <option value="agridoce">Agridoces</option>
       </select>
       <div className="recipes_container">
-        {!filteredRecipes ? (
+        {isLoading ? (
           <p>Carregando...</p>
         ) : (
           filteredRecipes.map((recipe) => (

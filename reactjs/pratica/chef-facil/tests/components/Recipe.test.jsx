@@ -5,7 +5,11 @@ import { MemoryRouter } from "react-router-dom";
 
 describe("Recipe Component", () => {
   it("should render a message if a recipe is not found yet", () => {
-    render(<Recipe />);
+    render(
+      <MemoryRouter>
+        <Recipe />
+      </MemoryRouter>
+    );
 
     expect(
       screen.getByText("Receita ainda não encontrada.")
@@ -19,7 +23,9 @@ describe("Recipe Component", () => {
       </MemoryRouter>
     );
 
-    const recipe = await screen.findByRole("heading", {name: /frango agridoce/i});
+    const recipe = await screen.findByRole("heading", {
+      name: /frango agridoce/i,
+    });
 
     expect(recipe).toBeInTheDocument();
   });

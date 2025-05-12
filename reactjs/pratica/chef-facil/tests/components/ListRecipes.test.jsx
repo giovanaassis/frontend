@@ -55,4 +55,14 @@ describe("ListRecipes Component", () => {
       expect(screen.getByText(/tipo: doce/i)).toBeInTheDocument();
     });
   });
+
+  it("should render loading message", () => {
+    render(
+      <MemoryRouter>
+        <Recipes />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/carregando/i)).toBeInTheDocument();
+  });
 });
