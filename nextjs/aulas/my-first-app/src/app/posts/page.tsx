@@ -1,6 +1,7 @@
 import UserName from "@/components/UserName";
+import Link from "next/link";
 
-interface PostsProps {
+export interface PostsProps {
   id: string;
   title: string;
   body: string;
@@ -23,10 +24,15 @@ export default async function page() {
       <UserName />
 
       <div className="mt-10">
-        {data.posts.map(post => (
+        {data.posts.map((post) => (
           <div key={post.id} className="border p-4 rounded shadow">
+            <span>ID: {post.id}</span>
             <h2 className="text-lg font-semibold">{post.title}</h2>
             <p className="text-gray-700">{post.body}</p>
+            <Link href={`/posts/${post.id}`}
+            className="text-blue-900 underline cursor-pointer">
+              See post details
+            </Link>
           </div>
         ))}
       </div>
