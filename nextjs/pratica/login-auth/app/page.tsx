@@ -1,7 +1,20 @@
+
+export const revalidate = 0;
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      Tela de login
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="flex shadow-2xl">
+        {/* FORM SECTION */}
+        <section className="p-10">
+          <h1>Sign In</h1>
+        </section>
+
+        {/* BACKGROUND SECTION */}
+        <section className="bg-yellow text-white p-10">
+          <h1>Hello, Friend!</h1>
+        </section>
+      </div>
     </div>
   );
 }
