@@ -1,22 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-inter: "Inter", sans-serif;
+  --font-sn: "SN Pro", sans-serif;
 
   --color-yellow: rgb(255, 195, 0);
   --color-white: rgb(229, 229, 229);
   --color-black: rgb(36, 36, 35);
 }
 
+body {
+  font-family: var(--font-sn);
+  background-color: var(--color-white);
+}
+
 @layer base {
   h1 {
     font-size: 2.9em;
   }
+
+  input {
+    @apply p-1 border-b-2 border-b-gray-300 outline-none;
+  }
+
+  form {
+    @apply flex flex-col gap-5;
+  }
 }
 
-body {
-  font-family: var(--font-inter);
-  background-color: var(--color-white);
+/* UTILITIES */
+
+@utility btn-primary {
+  @apply bg-yellow rounded-4xl text-white p-2 font-extrabold text-sm w-37.5 cursor-pointer self-center;
 }
 
+@utility forgot-password {
+  @apply text-sm text-gray-500 self-center cursor-pointer hover:underline;
+}
