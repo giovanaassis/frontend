@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-inter: "Inter", sans-serif;
@@ -36,6 +40,14 @@ body {
   @apply bg-yellow rounded-4xl text-white p-2 font-extrabold text-sm w-37.5 cursor-pointer self-center;
 }
 
+@utility btn-secondary {
+  @apply btn-primary bg-transparent border-2 border-white;
+}
+
 @utility forgot-password {
   @apply text-sm text-gray-500 self-center cursor-pointer hover:underline;
+}
+
+.shadow-lg {
+  box-shadow: 0 0 4px 0 #00000057;
 }
