@@ -2,6 +2,7 @@
 
 import CustomIcon from "@/components/CustomIcon";
 import SignInForm from "@/components/forms/SignInForm";
+import SignUpForm from "@/components/forms/SignUpForm";
 import Silk from "@/components/Silk";
 import { useState } from "react";
 
@@ -33,13 +34,13 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className={`flex shadow-lg w-250 overflow-hidden rounded-2xl`}>
+      <div className={`flex shadow-lg w-250 h-125 overflow-hidden rounded-2xl`}>
         {/* FORM SECTION */}
         <section
           className="p-10 flex flex-col items-center gap-5 flex-1
         "
         >
-          <h1>Sign in</h1>
+          <h1>{isSignup ? "Create Account" : "Sign In"}</h1>
           <div className="flex justify-around gap-3">
             <CustomIcon src="/assets/icons/facebook.svg" alt="facebook" />
             <CustomIcon src="/assets/icons/google.svg" alt="google" />
@@ -48,7 +49,7 @@ export default function Home() {
           <span className="text-sm text-gray-500">
             or use your email account
           </span>
-          <SignInForm />
+          {isSignup ? <SignUpForm /> : <SignInForm />}
         </section>
 
         {/* BACKGROUND SECTION */}
@@ -58,13 +59,28 @@ export default function Home() {
           </div>
 
           <div className="text-white flex flex-col items-center justify-center w-full h-full gap-2">
-            <h1>Hello, Friend!</h1>
-            <p className="font-medium text-center">
-              Enter your personal details and start your journey with us
-            </p>
-            <button className="btn-secondary" onClick={switchFormMode}>
-              SIGN UP
-            </button>
+            {isSignup ? (
+              <>
+                <h1>Welcome Back!</h1>
+                <p className="font-medium text-center">
+                  To keep connected with us, please log in with your personal
+                  info
+                </p>
+                <button className="btn-secondary" onClick={switchFormMode}>
+                  SIGN IN
+                </button>
+              </>
+            ) : (
+              <>
+                <h1>Hello, Friend!</h1>
+                <p className="font-medium text-center">
+                  Enter your personal details and start your journey with us
+                </p>
+                <button className="btn-secondary" onClick={switchFormMode}>
+                  SIGN UP
+                </button>
+              </>
+            )}
           </div>
         </section>
       </div>
