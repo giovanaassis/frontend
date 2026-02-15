@@ -12,7 +12,10 @@ export const signInAction = async (formData: FormData) => {
   }
 };
 
-export const signUpAction = async (prevState: any, formData: FormData) => {
+export const signUpAction = async (
+  prevState: any,
+  formData: FormData,
+): Promise<{ success: boolean; errors?: CustomErrors[] }> => {
   try {
     // 1 - VALIDATE DATA
     const validation = SignupFormSchema.safeParse({
@@ -33,12 +36,28 @@ export const signUpAction = async (prevState: any, formData: FormData) => {
     }
 
     // 2 - VERIFY IF USER EXISTS
-    users
+    const existingUser = users.some(
+      (user) => user.email === formData.get("email"),
+    );
+
+    if (existingUser) {
+      return {
+        success: false,
+        errors: [{ path: "email", message: "User already exists." }],
+      };
+    }
+
     // 3 - HASH PASSWORD
     // 4 - CREATE USER ON DATABASE
     // 5 - CREATE SESSION ON DATABASE
     // 6 - SEND THE SESSION ON COOKIE
+
+    return { success: true };
   } catch (error) {
     console.log(error);
+    return {
+      success: false,
+      errors: [{ path: "error", message: "An error occurred during signup." }],
+    };
   }
 };

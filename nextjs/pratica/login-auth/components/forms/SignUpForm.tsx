@@ -1,7 +1,8 @@
 "use client";
 
 import { signUpAction } from "@/actions/auth.actions";
-import { useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { useActionState, useEffect } from "react";
 
 const initialState = {
   success: false,
@@ -13,6 +14,13 @@ function SignUpForm() {
     signUpAction,
     initialState,
   );
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state.success) {
+      router.push("/admin");
+    }
+  }, [router, state.success]);
 
   return (
     <form action={formAction}>

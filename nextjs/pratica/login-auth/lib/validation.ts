@@ -11,7 +11,7 @@ export const SignupFormSchema = z.object({
     .min(6, "Password should be at least 6 characters.")
     .refine(
       (pw) =>
-        /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*-])(?=\\S+$)/.test(pw),
+        /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*-])/.test(pw),
       "Invalid password.",
     ),
 });
