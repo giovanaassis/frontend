@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className={`flex shadow-lg w-250 h-125 overflow-hidden rounded-2xl`}>
+      <div className={`flex shadow-lg w-250 min-h-125 overflow-hidden rounded-2xl`}>
         {/* FORM SECTION */}
         <section
           className="p-10 flex flex-col items-center gap-5 flex-1

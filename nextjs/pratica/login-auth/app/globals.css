@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
+body {
+  font-family: var(--font-sn);
+  background-color: var(--color-white);
+}
+
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-sn: "SN Pro", sans-serif;
@@ -9,11 +14,6 @@
   --color-yellow: rgb(255, 195, 0);
   --color-white: rgb(229, 229, 229);
   --color-black: rgb(36, 36, 35);
-}
-
-body {
-  font-family: var(--font-sn);
-  background-color: var(--color-white);
 }
 
 @layer base {
@@ -43,6 +43,8 @@ body {
 @utility forgot-password {
   @apply text-sm text-gray-500 self-center cursor-pointer hover:underline;
 }
+
+/* TAILWIND OVERRIDES */
 
 .shadow-lg {
   box-shadow: 0 0 4px 0 #00000057;
