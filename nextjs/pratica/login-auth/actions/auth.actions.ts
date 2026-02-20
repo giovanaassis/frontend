@@ -49,8 +49,19 @@ export const signUpAction = async (
     }
 
     // 3 - HASH PASSWORD
-    const hashedPassword = await bcrypt.hash(formData.get("password") as string, 10);
+    const hashedPassword = await bcrypt.hash(
+      formData.get("password") as string,
+      10,
+    );
     // 4 - CREATE USER ON DATABASE
+    users.push({
+      id: users.length + 1,
+      email: formData.get("email") as string,
+      password: hashedPassword,
+      username: formData.get("username") as string,
+    });
+
+    console.log("newUsers", users);
     // 5 - CREATE SESSION ON DATABASE
     // 6 - SEND THE SESSION ON COOKIE
 
