@@ -3,6 +3,7 @@
 
 import { users } from "@/database";
 import { SignupFormSchema } from "@/lib/validation";
+import bcrypt from "bcryptjs";
 
 export const signInAction = async (formData: FormData) => {
   try {
@@ -48,6 +49,7 @@ export const signUpAction = async (
     }
 
     // 3 - HASH PASSWORD
+    const hashedPassword = await bcrypt.hash(formData.get("password") as string, 10);
     // 4 - CREATE USER ON DATABASE
     // 5 - CREATE SESSION ON DATABASE
     // 6 - SEND THE SESSION ON COOKIE
