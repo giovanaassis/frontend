@@ -1,7 +1,9 @@
 export const users: User[] = [
   {
-    id: 1,
+    id: "djhcbfjdecnjdakxdsdx",
     email: "janedoe@email.com",
     password: "iamjane",
   },
 ];
+
+export const sessions: Session[] = [];

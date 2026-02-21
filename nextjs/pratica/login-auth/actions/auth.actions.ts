@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
-import { users } from "@/database";
+import { sessions, users } from "@/database";
 import { SignupFormSchema } from "@/lib/validation";
 import bcrypt from "bcryptjs";
+import { cookies } from "next/headers";
 
 export const signInAction = async (formData: FormData) => {
   try {
@@ -16,12 +17,17 @@ export const signInAction = async (formData: FormData) => {
 export const signUpAction = async (
   prevState: any,
   formData: FormData,
-): Promise<{ success: boolean; errors?: CustomErrors[] }> => {
+): Promise<{
+  success: boolean;
+  errors?: CustomErrors[];
+}> => {
   try {
     // 1 - VALIDATE DATA
+    const email = formData.get("email")?.toString().toLowerCase().trim() || "";
+
     const validation = SignupFormSchema.safeParse({
       username: formData.get("username") as string,
-      email: formData.get("email") as string,
+      email,
       password: formData.get("password") as string,
     });
 
@@ -37,9 +43,7 @@ export const signUpAction = async (
     }
 
     // 2 - VERIFY IF USER EXISTS
-    const existingUser = users.some(
-      (user) => user.email === formData.get("email"),
-    );
+    const existingUser = users.some((user) => user.email === email);
 
     if (existingUser) {
       return {
@@ -54,16 +58,37 @@ export const signUpAction = async (
       10,
     );
     // 4 - CREATE USER ON DATABASE
+    const userId = crypto.randomUUID();
+
     users.push({
-      id: users.length + 1,
-      email: formData.get("email") as string,
+      id: userId,
+      email,
       password: hashedPassword,
       username: formData.get("username") as string,
     });
 
     console.log("newUsers", users);
     // 5 - CREATE SESSION ON DATABASE
-    // 6 - SEND THE SESSION ON COOKIE
+    const sessionDuration = 1000 * 60 * 60 * 24 * 7; // 7 days
+
+    const session = {
+      id: crypto.randomUUID(),
+      userId: userId,
+      expiresAt: new Date(Date.now() + sessionDuration),
+      createdAt: new Date(),
+    };
+    sessions.push(session);
+
+    // 6 - SET THE SESSION ON COOKIE
+    const cookieStore = await cookies();
+    cookieStore.set("sessionId", session.id, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      expires: new Date(Date.now() + sessionDuration),
+    });
+
+    console.log("sessions", sessions);
 
     return { success: true };
   } catch (error) {
