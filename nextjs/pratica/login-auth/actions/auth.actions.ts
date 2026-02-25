@@ -67,7 +67,6 @@ export const signUpAction = async (
       username: formData.get("username") as string,
     });
 
-    console.log("newUsers", users);
     // 5 - CREATE SESSION ON DATABASE
     const sessionDuration = 1000 * 60 * 60 * 24 * 7; // 7 days
 
@@ -87,8 +86,6 @@ export const signUpAction = async (
       sameSite: "strict",
       expires: new Date(Date.now() + sessionDuration),
     });
-
-    console.log("sessions", sessions);
 
     return { success: true };
   } catch (error) {

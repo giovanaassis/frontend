@@ -1,8 +1,9 @@
 export const users: User[] = [
   {
-    id: "djhcbfjdecnjdakxdsdx",
+    id: "djhcbfjdecn-jdakxdsdx-cisdjnc",
     email: "janedoe@email.com",
     password: "iamjane",
+    username: "Jane Doe",
   },
 ];
 
