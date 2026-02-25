@@ -18,6 +18,8 @@ function SignUpForm() {
 
   useEffect(() => {
     if (state.success) {
+      localStorage.setItem("user", JSON.stringify(state.user));
+
       router.push("/admin");
     }
   }, [router, state.success]);

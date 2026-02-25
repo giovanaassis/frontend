@@ -2,7 +2,7 @@ declare type User = {
   id?: string;
   username?: string;
   email: string;
-  password: string;
+  password?: string;
 };
 
 declare type Session = {

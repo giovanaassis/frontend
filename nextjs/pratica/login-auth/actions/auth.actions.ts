@@ -20,6 +20,7 @@ export const signUpAction = async (
 ): Promise<{
   success: boolean;
   errors?: CustomErrors[];
+  user?: Omit<User, "password">;
 }> => {
   try {
     // 1 - VALIDATE DATA
@@ -87,7 +88,10 @@ export const signUpAction = async (
       expires: new Date(Date.now() + sessionDuration),
     });
 
-    return { success: true };
+    const createdUser = users.find((u) => u.id === userId);
+    const { password: _, ...userWithoutPassword } = createdUser as User;
+
+    return { success: true, user: userWithoutPassword };
   } catch (error) {
     console.log(error);
     return {
