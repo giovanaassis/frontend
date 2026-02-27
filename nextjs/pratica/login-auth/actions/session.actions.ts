@@ -4,6 +4,29 @@ import { sessions } from "@/database";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+export const verifySession = async () => {
+  try {
+    const cookieStore = await cookies();
+    const cookieSessionId = cookieStore.get("sessionId")?.value;
+
+    if (!cookieSessionId) {
+      return false;
+    }
+
+    const session = sessions.some(
+      (s) => s.id === cookieSessionId && s.expiresAt > new Date(),
+    );
+
+    if (!session) {
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const deleteSession = async () => {
   try {
     const cookieStore = await cookies();
@@ -19,11 +42,4 @@ export const deleteSession = async () => {
   }
 
   redirect("/");
-};
-
-export const verifySession = async () => {
-  try {
-  } catch (error) {
-    console.log(error);
-  }
 };

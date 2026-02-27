@@ -5,6 +5,7 @@ import { sessions, users } from "@/database";
 import { SignupFormSchema } from "@/lib/validation";
 import bcrypt from "bcryptjs";
 import { cookies } from "next/headers";
+import { verifySession } from "./session.actions";
 
 export const signInAction = async (formData: FormData) => {
   try {
@@ -98,5 +99,15 @@ export const signUpAction = async (
       success: false,
       errors: [{ path: "error", message: "An error occurred during signup." }],
     };
+  }
+};
+
+export const editUserAction = async (formData: FormData) => {
+  try {
+    verifySession();
+
+    
+  } catch (error) {
+    console.log(error);
   }
 };
