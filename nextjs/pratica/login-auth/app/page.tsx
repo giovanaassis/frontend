@@ -41,6 +41,7 @@ export default function Home() {
         "
         >
           <h1>{isSignup ? "Create Account" : "Sign In"}</h1>
+          {/* TODO => SIGNUP THROUGH authO */}
           <div className="flex justify-around gap-3">
             <CustomIcon src="/assets/icons/facebook.svg" alt="facebook" />
             <CustomIcon src="/assets/icons/google.svg" alt="google" />

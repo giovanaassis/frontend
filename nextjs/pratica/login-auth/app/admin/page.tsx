@@ -9,8 +9,6 @@ function AdminPage() {
 
   useEffect(() => {
     const user: User = JSON.parse(localStorage.getItem("user") || "{}");
-
-    console.log("user", user);
     setUser(user);
   }, []);
 
@@ -22,8 +20,7 @@ function AdminPage() {
     <div className="p-12">
       <h1>Admin Page</h1>
       <h2>Welcome, {user?.username}</h2>
-      {/* TODO => ADD EDIT USER FEATURE TO TEST AUTH CHECK ON REQUESTS */}
-      <EditUserForm user={user} />
+      <EditUserForm user={user} onChangeUser={setUser} />
       <button className="btn-primary mt-5" onClick={deleteSession}>
         LOG OUT
       </button>

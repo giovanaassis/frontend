@@ -102,11 +102,17 @@ export const signUpAction = async (
   }
 };
 
-export const editUserAction = async (formData: FormData) => {
+export const editUserAction = async (id: string, formData: FormData) => {
   try {
     verifySession();
 
-    
+    const newUser: User = {
+      id,
+      email: formData.get("email") as string,
+      username: formData.get("username") as string
+    };
+
+    return newUser;
   } catch (error) {
     console.log(error);
   }
