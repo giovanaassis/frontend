@@ -4,6 +4,7 @@ import CustomIcon from "@/components/CustomIcon";
 import SignInForm from "@/components/forms/SignInForm";
 import SignUpForm from "@/components/forms/SignUpForm";
 import Silk from "@/components/Silk";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 // export const revalidate = 0;
@@ -34,17 +35,20 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className={`flex shadow-lg w-250 min-h-125 overflow-hidden rounded-2xl`}>
+      <div
+        className={`flex shadow-lg w-250 min-h-125 overflow-hidden rounded-2xl`}
+      >
         {/* FORM SECTION */}
         <section
           className="p-10 flex flex-col items-center gap-5 flex-1
         "
         >
           <h1>{isSignup ? "Create Account" : "Sign In"}</h1>
-          {/* TODO => SIGNUP THROUGH authO */}
           <div className="flex justify-around gap-3">
             <CustomIcon src="/assets/icons/facebook.svg" alt="facebook" />
-            <CustomIcon src="/assets/icons/google.svg" alt="google" />
+            <button onClick={() => signIn("google", { redirectTo: "/admin" })}>
+              <CustomIcon src="/assets/icons/google.svg" alt="google" />
+            </button>
             <CustomIcon src="/assets/icons/linkedin.svg" alt="linkedin" />
           </div>
           <span className="text-sm text-gray-500">

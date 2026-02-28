@@ -1,29 +1,27 @@
-"use client";
+import { auth } from "@/auth";
+import Image from "next/image";
 
-import { deleteSession } from "@/actions/session.actions";
-import EditUserForm from "@/components/forms/EditUserForm";
-import { useEffect, useState } from "react";
+async function AdminPage() {
+  const session = await auth();
 
-function AdminPage() {
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    const user: User = JSON.parse(localStorage.getItem("user") || "{}");
-    setUser(user);
-  }, []);
-
-  if (!user) {
-    return <div>Loading...</div>
+  if (!session?.user) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="p-12">
       <h1>Admin Page</h1>
-      <h2>Welcome, {user?.username}</h2>
-      <EditUserForm user={user} onChangeUser={setUser} />
-      <button className="btn-primary mt-5" onClick={deleteSession}>
-        LOG OUT
-      </button>
+      <h2>Welcome, {session.user.name}</h2>
+      <div>
+        <Image
+          src={session.user.image!}
+          alt="your-profile-image"
+          width={100}
+          height={100}
+          className="bg-gray-800 rounded-full"
+        />
+      </div>
+      {/* <EditUserForm user={user} onChangeUser={setUser} /> */}
     </div>
   );
 }
