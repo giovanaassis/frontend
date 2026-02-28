@@ -17,22 +17,6 @@ export default function Home() {
     console.log(isSignup);
   };
 
-  // return (
-  //   <div className={`bg-black min-h-screen flex items-center justify-center`}>
-  //     {/* CONTAINER */}
-  //     <div className="bg-green-600 w-250 h-[70vh] flex overflow-hidden">
-  //       <section
-  //         className={`bg-red-700 flex-1 h-full transition ease-in-out duration-500 ${isSignup && "translate-x-[333px]"}`}
-  //       >
-  //         <button onClick={switchFormMode}>SWITCH</button>{" "}
-  //       </section>
-  //       <section
-  //         className={`bg-blue-700 w-1/3 h-full transition ease-in-out duration-500 ${isSignup && "-translate-x-[667px]"}`}
-  //       ></section>
-  //     </div>
-  //   </div>
-  // );
-
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div
