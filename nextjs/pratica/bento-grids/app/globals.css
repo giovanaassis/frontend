@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-lightblue: #B3E9C7;
+}
+
 body {
-  color: white;
   font-family: "Permanent Marker", cursive;
+}
+
+@layer components {
+  .card {
+    @apply rounded-full p-5 bg-lightblue w-50 h-20 text-black! flex items-center justify-center transition duration-150 hover:scale-110;
+  }
 }
