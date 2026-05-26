@@ -1,17 +1,101 @@
-import CustomizationImage from "@/assets/images/givingli/customization-img.avif";
+import CustomizationImage from "@/assets/images/givingli/customization-img.webp";
 import Image from "next/image";
-
-// --color-lilac: #C0B0E2;
-// --color-pink: #F482A2;
-// --color-green: #C6D88E;
-// --color-yellow: #FBDE6E;
-// --color-orange: #F9A473;
-// --color-blue: #B6CCDA;
+import SchedulingImage from "@/assets/images/givingli/scheduling-img.webp";
+import WalletImage from "@/assets/images/givingli/wallet-img.webp";
+import InboxImage from "@/assets/images/givingli/inbox-img.webp";
+import GiftsImage from "@/assets/images/givingli/gifts-img.webp";
+import RemindersImage from "@/assets/images/givingli/reminders-img.webp";
 
 function GivingliTemplate() {
   return (
-    <div>
-      <Image src={CustomizationImage} alt="" width={200}/>
+    <div className="font-sans max-w-6xl givingli_container md:grid-cols-3">
+      <div className="bg-[#C0B0E2] rounded-3xl p-5 text-[#562663] font-medium row-span-2 flex flex-col justify-around">
+        <h2 className="font-bold text-2xl mb-5">Customization</h2>
+        <Image
+          src={CustomizationImage}
+          alt="Customization image"
+          width={300}
+          height={300}
+          className="object-cover"
+          priority
+        />
+        <p className="w-[70%]">
+          Use a pre-designed template or personalize with video, stickers, fonts
+          and more
+        </p>
+      </div>
+      <div className="bg-[#F482A2] h-70 rounded-3xl p-5 text-[#562663] font-medium col-span-2 flex overflow-visible relative">
+        <div className="self-end w-[55%]">
+          <h2 className="font-bold text-2xl mb-5">Scheduling</h2>
+          <p>
+            Schedule all your cards and gifts now and we&apos;ll send them later
+          </p>
+        </div>
+        <Image
+          src={SchedulingImage}
+          alt="Scheduling image"
+          width={400}
+          height={400}
+          className="object-contain absolute -bottom-5 -right-10"
+          priority
+        />
+      </div>
+      <div className="bg-[#C6D88E] h-90 rounded-3xl p-5 text-[#1F4922] font-medium flex flex-col gap-5">
+        <Image
+          src={WalletImage}
+          alt="Wallet image"
+          width={300}
+          height={200}
+          className="w-auto object-contain"
+          priority
+        />
+        <div className="w-[60%]">
+          <h2 className="font-bold text-2xl mb-5">Wallet</h2>
+          <p>Access all your gifts and save up your Givingli Cash</p>
+        </div>
+      </div>
+      <div className="bg-[#FBDE6E] h-90 rounded-3xl p-5 text-[#49451B] font-medium overflow-hidden flex flex-col gap-5">
+        <div className="w-[50%]">
+          <h2 className="font-bold text-2xl mb-5">Inbox</h2>
+          <p>Track your gifts, group chats, and sent cards</p>
+        </div>
+        <Image
+          src={InboxImage}
+          alt="Inbox image"
+          width={300}
+          height={300}
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="bg-[#F9A473] h-70 rounded-3xl p-5 text-[#632F19] font-medium col-span-2 flex items-center overflow-hidden gap-5">
+        <div className="self-end w-[50%]">
+          <h2 className="font-bold text-2xl mb-5">Send Gifts</h2>
+          <p>Send as a group with friends or individually</p>
+        </div>
+        <Image
+          src={GiftsImage}
+          alt="Gifts image"
+          width={500}
+          height={300}
+          className="object-contain mt-30"
+          priority
+        />
+      </div>
+      <div className="bg-[#B6CCDA] h-70 rounded-3xl p-5 text-[#164767] font-medium flex flex-col gap-5 overflow-hidden">
+        <div className="w-[50%]">
+          <h2 className="font-bold text-2xl mb-5">Reminders</h2>
+          <p>Never miss a birthday again</p>
+        </div>
+        <Image
+          src={RemindersImage}
+          alt="Reminders image"
+          width={300}
+          height={300}
+          className="object-cover"
+          priority
+        />
+      </div>
     </div>
   );
 }

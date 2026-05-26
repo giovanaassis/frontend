@@ -13,7 +13,7 @@ export default async function SketchPage({
   }
 
   return (
-    <div className="text-black">
+    <div className="text-black min-h-screen flex items-center justify-center p-15">
       <Template />
     </div>
   );
