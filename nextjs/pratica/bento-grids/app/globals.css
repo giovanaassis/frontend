@@ -13,10 +13,4 @@ body {
   .card {
     @apply rounded-full p-5 bg-lightblue w-50 h-20 text-black! flex items-center justify-center transition duration-150 hover:scale-110;
   }
-
-  .givingli_container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-  }
 }
