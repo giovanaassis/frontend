@@ -13,4 +13,8 @@ body {
   .card {
     @apply rounded-full p-5 bg-lightblue w-50 h-20 text-black! flex items-center justify-center transition duration-150 hover:scale-110;
   }
+
+  .apple-card {
+    @apply bg-[#191a19] text-[#9e9e9e] rounded-2xl p-10 flex flex-col items-center justify-center text-center text-sm md:text-lg;
+  }
 }
